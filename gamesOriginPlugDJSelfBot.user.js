@@ -3,7 +3,7 @@
 // @namespace       https://github.com/Hybris95/GamesOriginPlugDJSelfBot
 // @description     Autorun GamesOriginPlugDJSelfBot
 // @icon            https://avatars3.githubusercontent.com/u/705741?v=2&s=40
-// @include         https://plug.dj/*
+// @include         https://plug.dj/gamersorigin
 // @exclude         https://plug.dj/dashboard
 // @exclude         https://plug.dj/privacy
 // @exclude         https://plug.dj/terms
