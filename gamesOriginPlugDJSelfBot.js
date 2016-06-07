@@ -34,6 +34,8 @@ var maxDurationMessage = "Attention à la durée @%pseudo%, %maxDurationOfficial
 var earlyLevel = 1;// Under this level you are considered as a newbie
 var earlyLevelMessage = "Bienvenue @%pseudo% si tu as des questions n'hésites pas.";
 
+var lastMsgUid = 0;
+var lastCycleMsgUid = -1;
 var autoMsgCycling = 15;// in Minutes
 var autoMsgCyclingMessage = "Petit rappel : la durée maximale tolérée pour une musique est de %maxDurationOfficial% minutes, essayez de respecter cette durée, merci !";
 
@@ -108,10 +110,18 @@ analyseChat = function(chat){
     var cid = chat.cid;
     var timestamp = chat.timestamp;
     
+    var transformedAutoMsgCyclingMessage = autoMsgCyclingMessage.replace("%maxDurationOfficial%", maxDurationOfficial);
+    
 	if(message == cmdCheck)
 	{
 		API.sendChat(cmdCheckMessage);
 	}
+	
+	if(message == transformedAutoMsgCyclingMessage)
+	{
+        lastCycleMsgUid = uid;
+	}
+	lastMsgUid = uid;
 };
 if(!chatEventHookedOnApi){
     API.on(API.CHAT, analyseChat);
@@ -123,9 +133,12 @@ if(!chatEventHookedOnApi){
  */
 var cycleEvent;
 cycleEvent = function(){
-	var transformedAutoMsgCyclingMessage = autoMsgCyclingMessage.replace("%maxDurationOfficial%", maxDurationOfficial);
-	API.sendChat(transformedAutoMsgCyclingMessage);
-	setTimeout(cycleEvent, autoMsgCycling * 60 * 1000);
+	if(lastMsgUid != lastCycleMsgUid)
+	{
+		var transformedAutoMsgCyclingMessage = autoMsgCyclingMessage.replace("%maxDurationOfficial%", maxDurationOfficial);
+		API.sendChat(transformedAutoMsgCyclingMessage);
+		setTimeout(cycleEvent, autoMsgCycling * 60 * 1000);
+	}
 };
 
 /**
