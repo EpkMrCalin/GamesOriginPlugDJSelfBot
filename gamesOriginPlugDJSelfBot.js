@@ -1,6 +1,6 @@
 /** GNU GPLv3 Licensing :
 Christian BUISSON French Developper contact by electronic mail: hybris_95@hotmail.com
-Copyright © 2014 Christian BUISSON
+Copyright Â© 2014 Christian BUISSON
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -29,13 +29,13 @@ var debug = false;
 
 var maxDuration = 330;// in Seconds
 var maxDurationOfficial = 5;// in Minutes
-var maxDurationMessage = "Attention à la durée @%pseudo%, %maxDurationOfficial% minutes maximum";
+var maxDurationMessage = "Attention Ã  la durÃ©e @%pseudo%, %maxDurationOfficial% minutes maximum";
 
 var earlyLevel = 1;// Under this level you are considered as a newbie
-var earlyLevelMessage = "Bienvenue @%pseudo% si tu as des questions n'hésites pas.";
+var earlyLevelMessage = "Bienvenue @%pseudo% si tu as des questions n'hÃ©sites pas.";
 
 var autoMsgCycling = 15;// in Minutes
-var autoMsgCyclingMessage = "Petit rappel : la durée maximale toléré pour une musique est de %maxDurationOfficial% minutes, essayer de respecter cette durée, merci !";
+var autoMsgCyclingMessage = "Petit rappel : la durÃ©e maximale tolÃ©rÃ©e pour une musique est de %maxDurationOfficial% minutes, essayez de respecter cette durÃ©e, merci !";
 
 var cmdCheck = "!tuto";// This command generates an automatic message
 var cmdCheckMessage = "http://myreader.toile-libre.org/uploads/My_5752eb05cc198.pdf";
