@@ -1,7 +1,9 @@
 
-Skip automatique en fonction de paramètres définis :
+Skip automatique en fonction de paramÃ¨tres dÃ©finis :
 Nombre de woot
 Nombre de meh
 Nombre de personnes dans la salle
 
 S'assurer de ne lancer un !tuto que tous les X minutes
+
+S'assurer de ne lancer le message automatique que si l'activitÃ© du chat depuis le dernier message n'est pas nulle
