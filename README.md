@@ -4,7 +4,7 @@ Licensing
 ---------
 Christian BUISSON French Developper contact by electronic mail: hybris_95@hotmail.com
 
-Copyright © 2014 Christian BUISSON
+Copyright Â© 2014 Christian BUISSON
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -28,11 +28,11 @@ How to use
 
 * Make a new bookmark with the following code :
 
-javascript:(function(){$.getScript('https://rawgit.com/Hybris95/HybrisPlugDJ/master/hybrisPlugDJ.js');}());
+javascript:(function(){$.getScript('https://rawgit.com/Hybris95/GamesOriginPlugDJSelfBot/master/gamesOriginPlugDJSelfBot.js');}());
 
 * Load the following UserScript into [GreaseMonkey (Firefox)](https://addons.mozilla.org/en-US/firefox/addon/greasemonkey/) or [Tampermonkey (Chrome)](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo/):
 
-https://rawgit.com/Hybris95/HybrisPlugDJ/master/hybrisPlugDJ.user.js
+https://rawgit.com/Hybris95/GamesOriginPlugDJSelfBot/master/gamesOriginPlugDJSelfBot.user.js
 
 Contact
 -------
