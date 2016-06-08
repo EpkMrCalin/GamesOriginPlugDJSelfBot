@@ -27,6 +27,8 @@ Copyright © 2014 Christian BUISSON
  */
 var debug = false;
 
+var maxDurationAutoSkip = 480;// in Seconds
+var autoSkipNewPosition = 3;
 var maxDuration = 330;// in Seconds
 var maxDurationOfficial = 5;// in Minutes
 var maxDurationMessage = "Attention à la durée @%pseudo%, %maxDurationOfficial% minutes maximum";
@@ -60,6 +62,10 @@ advanceFunction = function(data) {
 	{
 		var transformedMaxDurationMessage = maxDurationMessage.replace("%pseudo%", data.dj.username).replace("%maxDurationOfficial%", maxDurationOfficial);
 		API.sendChat(transformedMaxDurationMessage);
+	}
+	if(data.mediat.duration >= maxDurationAutoSkip)
+	{
+		API.moderateMoveDJ(data.dj.id, autoSkipNewPosition);// TODO - Tester les cas où la liste d'attente est inférieure à autoSkipNewPosition ?
 	}
 };
 if(!advanceEventHookedOnApi){
