@@ -67,10 +67,12 @@ advanceFunction = function(data) {
 		API.sendChat(transformedMaxDurationSkipMessage);
 		
 		var idToSkip = data.dj.id;
+		API.moderateLockWaitList(true, false);
 		API.moderateForceSkip();
 		API.moderateAddDJ(idToSkip);
 		// TODO - Tester les cas où la liste d'attente est inférieure à autoSkipNewPosition ?
 		API.moderateMoveDJ(idToSkip, autoSkipNewPosition);
+		API.moderateLockWaitList(false, false);
 	}
 	else if(data.media.duration >= maxDuration)
 	{
