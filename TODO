@@ -9,5 +9,3 @@ S'assurer de ne lancer un !tuto que tous les X minutes
 IA de détection des spammeurs/insultes
 Warnings puis si récidives actions préventives et enfin ban automatique
 Filtrer ces détections sur les simples membres, ne pas exécuter si le membre fait partie du Staff
-
-Skip automatique si la musique fait plus de 8minutes (en attente du Go/NoGo)
