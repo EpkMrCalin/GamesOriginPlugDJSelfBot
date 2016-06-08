@@ -70,7 +70,7 @@ advanceFunction = function(data) {
 		API.moderateLockWaitList(true);
 		API.moderateForceSkip();
 		API.moderateAddDJ(String(idToSkip));
-		if(autoSkipNewPosition <= API.getWaitList().length)
+		if(autoSkipNewPosition < API.getWaitList().length)
 		{
 			API.moderateMoveDJ(String(idToSkip), autoSkipNewPosition);
 		}
