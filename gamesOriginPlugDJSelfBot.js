@@ -27,11 +27,14 @@ Copyright © 2014 Christian BUISSON
  */
 var debug = false;
 
+var maxDurationOfficial = 5;// in Minutes
+
 var maxDurationAutoSkip = 480;// in Seconds
 var autoSkipNewPosition = 3;
+var maxDurationSkipMessage = "Attention à ldurée @%pseudo%, %maxDurationOfficial% minutes maximum. Tu as été replacé dans la file d'attente."
+
 var maxDuration = 330;// in Seconds
-var maxDurationOfficial = 5;// in Minutes
-var maxDurationMessage = "Attention à la durée @%pseudo%, %maxDurationOfficial% minutes maximum";
+var maxDurationMessage = "Attention à la durée @%pseudo%, %maxDurationOfficial% minutes maximum.";
 
 var earlyLevel = 1;// Under this level you are considered as a newbie
 var earlyLevelMessage = "Bienvenue @%pseudo% si tu as des questions n'hésites pas !";
@@ -58,14 +61,17 @@ if(advanceFunction && advanceEventHookedOnApi){
 advanceFunction = function(data) {
     if(debug){console.log("Advance event");console.log(data);}
     
-	if(data.media.duration >= maxDuration)
+	if(data.mediat.duration >= maxDurationAutoSkip)
+	{
+		var transformedMaxDurationSkipMessage = maxDurationSkipMessage.replace("%pseudo%", data.dj.username).replace("%maxDurationOfficial%", maxDurationOfficial);
+		API.sendChat(transformedMaxDurationSkipMessage);
+		// TODO - Tester les cas où la liste d'attente est inférieure à autoSkipNewPosition ?
+		API.moderateMoveDJ(data.dj.id, autoSkipNewPosition);
+	}
+	else if(data.media.duration >= maxDuration)
 	{
 		var transformedMaxDurationMessage = maxDurationMessage.replace("%pseudo%", data.dj.username).replace("%maxDurationOfficial%", maxDurationOfficial);
 		API.sendChat(transformedMaxDurationMessage);
-	}
-	if(data.mediat.duration >= maxDurationAutoSkip)
-	{
-		API.moderateMoveDJ(data.dj.id, autoSkipNewPosition);// TODO - Tester les cas où la liste d'attente est inférieure à autoSkipNewPosition ?
 	}
 };
 if(!advanceEventHookedOnApi){
