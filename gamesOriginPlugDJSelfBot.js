@@ -32,11 +32,11 @@ var maxDurationOfficial = 5;// in Minutes
 var maxDurationMessage = "Attention à la durée @%pseudo%, %maxDurationOfficial% minutes maximum";
 
 var earlyLevel = 1;// Under this level you are considered as a newbie
-var earlyLevelMessage = "Bienvenue @%pseudo% si tu as des questions n'hésites pas.";
+var earlyLevelMessage = "Bienvenue @%pseudo% si tu as des questions n'hésites pas !";
 
 var lastMsgUid = 0;
 var lastCycleMsgUid = -1;
-var autoMsgCycling = 15;// in Minutes
+var autoMsgCycling = 20;// in Minutes
 var autoMsgCyclingMessage = "Petit rappel : la durée maximale tolérée pour une musique est de %maxDurationOfficial% minutes, essayez de respecter cette durée, merci !";
 
 var cmdCheck = "!tuto";// This command generates an automatic message
