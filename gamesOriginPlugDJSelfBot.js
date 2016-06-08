@@ -31,7 +31,7 @@ var maxDurationOfficial = 5;// in Minutes
 
 var maxDurationAutoSkip = 480;// in Seconds
 var autoSkipNewPosition = 3;
-var maxDurationSkipMessage = "Attention à ldurée @%pseudo%, %maxDurationOfficial% minutes maximum. Tu as été replacé dans la file d'attente."
+var maxDurationSkipMessage = "Attention à la durée @%pseudo%, %maxDurationOfficial% minutes maximum. Tu as été replacé dans la file d'attente."
 
 var maxDuration = 330;// in Seconds
 var maxDurationMessage = "Attention à la durée @%pseudo%, %maxDurationOfficial% minutes maximum.";
