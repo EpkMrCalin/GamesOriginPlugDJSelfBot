@@ -137,8 +137,8 @@ cycleEvent = function(){
 	{
 		var transformedAutoMsgCyclingMessage = autoMsgCyclingMessage.replace("%maxDurationOfficial%", maxDurationOfficial);
 		API.sendChat(transformedAutoMsgCyclingMessage);
-		setTimeout(cycleEvent, autoMsgCycling * 60 * 1000);
 	}
+	setTimeout(cycleEvent, autoMsgCycling * 60 * 1000);
 };
 
 /**
