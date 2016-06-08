@@ -67,14 +67,14 @@ advanceFunction = function(data) {
 		API.sendChat(transformedMaxDurationSkipMessage);
 		
 		var idToSkip = data.dj.id;
-		API.moderateLockWaitList(true);
+		//API.moderateLockWaitList(true);
 		API.moderateForceSkip();
 		API.moderateAddDJ(String(idToSkip));
 		if(autoSkipNewPosition < API.getWaitList().length)
 		{
 			API.moderateMoveDJ(String(idToSkip), autoSkipNewPosition);
 		}
-		API.moderateLockWaitList(false);
+		//API.moderateLockWaitList(false);
 	}
 	else if(data.media.duration >= maxDuration)
 	{
