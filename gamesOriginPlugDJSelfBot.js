@@ -68,7 +68,7 @@ advanceFunction = function(data) {
 		
 		var idToSkip = data.dj.id;
 		API.moderateLockWaitList(true, false);
-		API.moderateForceSkip();
+		API.moderateRemoveDJ(idToSkip);
 		API.moderateAddDJ(idToSkip);
 		// TODO - Tester les cas où la liste d'attente est inférieure à autoSkipNewPosition ?
 		API.moderateMoveDJ(idToSkip, autoSkipNewPosition);
