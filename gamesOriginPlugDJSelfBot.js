@@ -70,7 +70,10 @@ advanceFunction = function(data) {
 		API.moderateLockWaitList(true);
 		API.moderateForceSkip();
 		API.moderateAddDJ(String(idToSkip));
-		API.moderateMoveDJ(String(idToSkip), autoSkipNewPosition);
+		if(autoSkipNewPosition > API.getWaitList().length)
+		{
+			API.moderateMoveDJ(String(idToSkip), autoSkipNewPosition);
+		}
 		API.moderateLockWaitList(false);
 	}
 	else if(data.media.duration >= maxDuration)
