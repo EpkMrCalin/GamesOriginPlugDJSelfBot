@@ -61,7 +61,7 @@ if(advanceFunction && advanceEventHookedOnApi){
 advanceFunction = function(data) {
     if(debug){console.log("Advance event");console.log(data);}
     
-	if(data.mediat.duration >= maxDurationAutoSkip)
+	if(data.media.duration >= maxDurationAutoSkip)
 	{
 		var transformedMaxDurationSkipMessage = maxDurationSkipMessage.replace("%pseudo%", data.dj.username).replace("%maxDurationOfficial%", maxDurationOfficial);
 		API.sendChat(transformedMaxDurationSkipMessage);
