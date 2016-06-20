@@ -12,3 +12,6 @@ Filtrer ces détections sur les simples membres, ne pas exécuter si le membre f
 
 Module de Stats (avec UI)
 - Détection des AutoWooters
+
+Coupure automatique des musiques de plus de 6 minutes au bout de 5minutes
+(s'assurer simplement que l'on skip la bonne musique)
