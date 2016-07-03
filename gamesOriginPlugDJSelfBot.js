@@ -29,7 +29,7 @@ var debug = false;
 
 var maxDurationOfficial = 5;// in Minutes
 
-var autoSkip = false;
+var autoSkip = true;
 var maxDurationAutoSkip = 390;// in Seconds
 var autoSkipNewPosition = 1;
 var maxDurationSkipMessage = "Attention à la durée @%pseudo%, %maxDurationOfficial% minutes maximum. Tu as été replacé dans la file d'attente."
