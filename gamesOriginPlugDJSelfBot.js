@@ -39,6 +39,9 @@ var maxDurationMessage = "Attention à la durée @%pseudo%, %maxDurationOfficial
 
 var earlyLevel = 1;// Under this level you are considered as a newbie
 var earlyLevelMessage = "Bienvenue @%pseudo% si tu as des questions n'hésites pas !";
+var earlyLevelMessageGlobal = "Welcome @%pseudo% if you have any questions don't hesitate !";
+var earlyLevelMessageDelay = 20;
+var earlyLevelList = [];
 
 var lastMsgUid = 0;
 var lastCycleMsgUid = -1;
@@ -103,13 +106,35 @@ someoneJoined = function(user){
 	
     if(user.level <= earlyLevel)
 	{
-		var transformedEarlyLevelMessage = earlyLevelMessage.replace("%pseudo%", user.username);
-		API.sendChat(transformedEarlyLevelMessage);
+		earlyLevelList.push(user);
+		setTimeout(earlyLevelFct, earlyLevelMessageDelay * 1000);
 	}
 };
 if(!joinHookedOnApi){
     API.on(API.USER_JOIN, someoneJoined);
     joinHookedOnApi = true;
+}
+
+function earlyLevelFct(){
+	if(earlyLevelList.length > 0){
+		// Get First User
+		var user = earlyLevelList[0];
+		// Cycle List
+		var newList = new Array(earlyLevelList.length - 1);
+		if(newList.length > 0){
+			for(var i = 1; i < earlyLevelList.length; i++){
+				newList[i - 1] = earlyLevelList[i];
+			}
+		}
+		earlyLevelList = newList;
+		// Send Message
+		var msg = earlyLevelMessageGlobal;
+		if(user.language == "fr"){
+			msg = earlyLevelMessage;
+		}
+		var transformedEarlyLevelMessage = msg.replace("%pseudo%", user.username);
+		API.sendChat(transformedEarlyLevelMessage);
+	}
 }
 
 /**
