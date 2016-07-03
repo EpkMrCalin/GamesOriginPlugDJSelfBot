@@ -29,6 +29,7 @@ var debug = false;
 
 var maxDurationOfficial = 5;// in Minutes
 
+var autoSkip = false;
 var maxDurationAutoSkip = 390;// in Seconds
 var autoSkipNewPosition = 1;
 var maxDurationSkipMessage = "Attention à la durée @%pseudo%, %maxDurationOfficial% minutes maximum. Tu as été replacé dans la file d'attente."
@@ -61,7 +62,7 @@ if(advanceFunction && advanceEventHookedOnApi){
 advanceFunction = function(data) {
     if(debug){console.log("Advance event");console.log(data);}
     
-	if(data.media.duration >= maxDurationAutoSkip)
+	if(autoSkip && (data.media.duration >= maxDurationAutoSkip))
 	{
 		var transformedMaxDurationSkipMessage = maxDurationSkipMessage.replace("%pseudo%", data.dj.username).replace("%maxDurationOfficial%", maxDurationOfficial);
 		API.sendChat(transformedMaxDurationSkipMessage);
